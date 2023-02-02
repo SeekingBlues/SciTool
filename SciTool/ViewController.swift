@@ -12,161 +12,100 @@ import WebKit
 import CoreWLAN
 
 class SplashViewController: NSViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-    
-    
-    @IBAction func open3DEquipotentialGrapherPanel(sender: Any?)
-    {
+    @IBAction func open3DEquipotentialGrapherPanel(sender: Any?) {
         print(" yo2 ")
         self.view.window?.close()
         self.view.window?.sheetParent?.close()
-        self.view.window?.sheetParent?.endSheet((self.view.window)!)
+        self.view.window?.sheetParent?.endSheet(self.view.window!)
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "EquipotGrapher3D") as! NSWindowController
         windowController.showWindow(self)
     }
-    @IBAction func openStoichReactor(sender: Any?)
-    {
+
+    @IBAction func openStoichReactor(sender: Any?) {
         print(" yo100 ")
         self.view.window?.close()
         self.view.window?.sheetParent?.close()
-        self.view.window?.sheetParent?.endSheet((self.view.window)!)
+        self.view.window?.sheetParent?.endSheet(self.view.window!)
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "stoichReact") as! NSWindowController
         windowController.showWindow(self)
     }
-    @IBAction func openStoichMass(sender: Any?)
-    {
+
+    @IBAction func openStoichMass(sender: Any?) {
         print(" yo101 ")
         self.view.window?.close()
         self.view.window?.sheetParent?.close()
-        self.view.window?.sheetParent?.endSheet((self.view.window)!)
+        self.view.window?.sheetParent?.endSheet(self.view.window!)
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "stoichMass") as! NSWindowController
         windowController.showWindow(self)
     }
-    @IBAction func openCircuitSimPanel(sender: Any?)
-    {
+
+    @IBAction func openCircuitSimPanel(sender: Any?) {
         print(" yo2 ")
         self.view.window?.close()
         self.view.window?.sheetParent?.close()
-        self.view.window?.sheetParent?.endSheet((self.view.window)!)
+        self.view.window?.sheetParent?.endSheet(self.view.window!)
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "CircuitSim") as! NSWindowController
         windowController.showWindow(self)
     }
-    
-    @IBAction func openEquipotentialGrapherPanel(sender: Any?)
-    {
+
+    @IBAction func openEquipotentialGrapherPanel(sender: Any?) {
         print(" yo4 ")
         self.view.window?.close()
         self.view.window?.sheetParent?.close()
-        self.view.window?.sheetParent?.endSheet((self.view.window)!)
+        self.view.window?.sheetParent?.endSheet(self.view.window!)
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "EquipotGrapher") as! NSWindowController
         windowController.showWindow(self)
     }
-    
-    @IBAction func openEquipotentialGrapher(sender: Any?)
-    {
+
+    @IBAction func openEquipotentialGrapher(sender: Any?) {
         print(" yo ")
         self.view.window?.close()
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "EquipotGrapher") as! NSWindowController
         windowController.showWindow(self)
     }
-    @IBAction func viewListOfCalculators(sender: Any?)
-    {
-        /*self.view.window?.close()
-        let alert: NSAlert = NSAlert()
-        alert.messageText = "Not Available Yet"
-        alert.informativeText = "This feature is not available yet. Please check back on the webpage for a new version that may include this feature."
-        alert.alertStyle = NSAlert.Style.informational
-        alert.addButton(withTitle: "OK")
-        _ = alert.runModal()*/
+
+    @IBAction func viewListOfCalculators(sender: Any?) {
         print(" yo3 ")
         self.view.window?.close()
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "list") as! NSWindowController
-        //self.view.window?.contentView = windowController.window?.contentView
-    //self.view.window?.beginSheet(windowController.window!)
         windowController.showWindow(self)
-        
-        
-        // TODO
     }
-    @IBAction func checkPackages(sender: Any?)
-    {
+
+    @IBAction func checkPackages(sender: Any?) {
         print(" yo5 ")
         self.view.window?.close()
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: "checker") as! NSWindowController
-        //self.view.window?.contentView = windowController.window?.contentView
-    //self.view.window?.beginSheet(windowController.window!)
         windowController.showWindow(self)
-        
-        
-        // self.view.window?.close()
-        // TODO
     }
-    
-    
-    
-}
-
-
-class NewViewController: NSViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-    
-    
 }
 
 class EPot3DViewController: NSViewController {
-    @IBAction func openGithub(sender: Any?)
-    {
+    @IBOutlet weak var scrollViewHelp: NSScrollView!
+    var imgIsReset = false
+
+    @IBAction func openGithub(sender: Any?) {
         let url = URL(string: "https://github.com/MDNich/SciTool")!
         if NSWorkspace.shared.open(url) {
             print("Browser Successfully opened")
         }
     }
-    
-    @IBOutlet weak var scrollViewHelp: NSScrollView!
-    
-    var imgIsReset: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ok cool we're in business")
-        if let _ = scrollViewHelp {
+        if scrollViewHelp != nil {
             print("ok cool we really are in business")
             print(representedObject)
         }
-        // Do any additional setup after loading the view.
     }
-    
-    
-    
-    
-    
     
     @IBOutlet weak var img: NSImageView! // no more
     
